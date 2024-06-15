@@ -14,9 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: configure
-      run: ./configure
-
     - name: Install DevKit Pro
       run: sudo installer -pkg devkitpro-pacman-installer.pkg -target /
            xcode-select --install
