@@ -9,14 +9,16 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: debian-latest
 
     steps:
     - uses: actions/checkout@v4
 
     - name: Install DevKit Pro
-      run: sudo installer -pkg devkitpro-pacman-installer.pkg -target /
-           xcode-select --install
+      run: wget https://apt.devkitpro.org/install-devkitpro-pacman
+            chmod +x ./install-devkitpro-pacman
+            sudo ./install-devkitpro-pacman
+           sudo ln -s /proc/self/mounts /etc/mtab
 
     - name: make
       run: make
